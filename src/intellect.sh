@@ -33,9 +33,9 @@ function login() {
 			"password": "'$2'"
 		}')
 
-	if [ $(jq -r ".success" <<<"$response") == "true" ]; then
-		token=$(jq -r ".data.token" <<<"$response")
-		user_id=$(jq -r ".data.id" <<<"$response")
+	if [ $(jq -r ".success" <<< "$response") == "true" ]; then
+		token=$(jq -r ".data.token" <<< "$response")
+		user_id=$(jq -r ".data.id" <<< "$response")
 	fi
 	echo $response
 }
