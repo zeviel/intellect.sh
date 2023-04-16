@@ -3,11 +3,12 @@
 api="https://internal.intellect.co/api"
 token=null
 user_id=null
+user_agent="okhttp/3.12.1"
 
 function get_app_config() {
 	curl --request GET \
 		--url "$api/app/config" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--header "authorization: $token"
@@ -16,7 +17,7 @@ function get_app_config() {
 function get_account_info() {
 	curl --request GET \
 		--url "$api/user/auth/me" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--header "authorization: $token"
@@ -25,7 +26,7 @@ function get_account_info() {
 function login() {
 	response=$(curl --request POST \
 		--url "$api/user/auth/login" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--data '{
@@ -43,7 +44,7 @@ function login() {
 function register() {
 	curl --request POST \
 		--url "$api/user/auth/register" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--data '{
@@ -58,7 +59,7 @@ function register() {
 function get_goals() {
 	curl --request GET \
 		--url "$api/user/profile/goals/open?goalsType=$1" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--header "authorization: $token"
@@ -67,7 +68,7 @@ function get_goals() {
 function search_wisdom() {
 	curl --request GET \
 		--url "$api/wisdom/catalogues/search?query=$1" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--header "authorization: $token"
@@ -76,7 +77,7 @@ function search_wisdom() {
 function change_password() {
 	curl --request PUT \
 		--url "$api/user/auth/password" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--header "authorization: $token" \
@@ -88,7 +89,7 @@ function change_password() {
 function delete_account() {
 	curl --request POST \
 		--url "$api/user/auth/delete" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--header "authorization: $token"
@@ -98,7 +99,7 @@ function delete_account() {
 function get_widgets() {
 	curl --request GET \
 		--url "$api/wisdom/catalogues/home/widgets" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--header "authorization: $token"
@@ -107,7 +108,7 @@ function get_widgets() {
 function forgot_password() {
 	curl --request POST \
 		--url "$api/user/auth/password/forgot/request" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--header "authorization: $token" \
@@ -119,7 +120,7 @@ function forgot_password() {
 function reset_password() {
 	curl --request POST \
 		--url "$api/user/auth/password/forgot/reset" \
-		--user-agent "okhttp/3.12.1" \
+		--user-agent "$user_agent" \
 		--header "accept: application/json"	\
 		--header "content-type: application/json" \
 		--header "authorization: $token" \
