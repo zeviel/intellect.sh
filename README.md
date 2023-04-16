@@ -3,7 +3,6 @@ Mobile-API for [intellect](https://play.google.com/store/apps/details?id=co.inte
 
 ## Example
 ```bash
-source intellect.sh
-
+source ./intellect.sh
 login "email" "password"
 ```
